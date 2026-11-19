@@ -402,7 +402,7 @@ def stop_session(name: str) -> None:
     ):
         _stopOne(name, record)
         return
-    s = state.get_session(name, ignore_missing_session=True)
+    s = state.get_session(name, ignore_missing_session=True, allow_attached=True)
     if not s:
         typer.echo(f"[colab] Session '{name}' not found.")
         return
